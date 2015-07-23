@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+	<fr.utc.assos.payutc.views.PanierSummary
+        android:id="@+id/show_articles_panier_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 article" 
+	/>
+    
+    <Button
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:onClick="onClickPanier"
+	android:text="Panier"
+    />
+    
+    <Button
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:onClick="onClickOk"
+	android:text="Ok !"
+    />
+    
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/show_articles_view"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:columnWidth="72dp"
+    android:numColumns="auto_fit"
+    android:verticalSpacing="5dp"
+    android:horizontalSpacing="5dp"
+    android:clipChildren="true"
+    android:stretchMode="columnWidth"
+    android:gravity="center"
+    android:scaleType="fitXY"
+	/>
+    
+    
+    
+</LinearLayout>
