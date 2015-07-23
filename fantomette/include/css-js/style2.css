@@ -1,0 +1,1266 @@
+/*
+  Copyright :
+    (C) 2006 UTT Net Group
+  Licence :
+    GNU GPL
+  Email :
+    ung@utt.fr
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of the
+  License, or (at your option) any later version.
+
+  http://www.gnu.org/copyleft/gpl.html
+
+
+  Nom du fichier d'origine :
+    style.css
+  Emplacement d'origine :
+    |site_root|/include/skin/default/
+  Version du fichier :
+    0.03
+  Rôle du fichier :
+    mettre en forme le code HTML généré par le php
+
+  Règles à respecter OBLIGATOIREMENT :
+    - pour les selecteurs particulier :
+      only Ie (<= 6) (utilisation du selecteur "*" suivit de l'élément "html") : 
+        * html XxX {} // XxX étant le reste de vos selecteurs CSS
+      whitout Ie (<= 6) (utilisation du selecteur d'enfant direct ">") :
+        html > body XxX {} //XxX  étant le reste de vos selecteurs CSS
+
+  Modifications :
+    Modifié le 04-05-2006
+      - 
+    Créé le xx-xx-xxxx
+      - xx
+
+*/
+ 
+
+
+/*
+ *
+ * Importation 
+ *
+ */
+@import url('./style.old.css'); /* vieille feuille de style */
+ 
+@import url('./css/modules2.css'); /* modules */
+@import url('./css/pages.css'); /* pages */
+@import url('./css/annale.css'); /* style de la page annale *//* fait à l'arrache */
+
+
+
+/*
+ *
+ * Styles généraux
+ *
+ */
+
+html, body
+{
+  margin: 0;
+  padding: 0;
+}
+body
+{
+  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-size: .8em;
+  text-align: center;
+}
+* html body
+{
+  font-size: 0.8em;
+}
+
+.clear
+{
+  clear: both !important;
+  display: block !important;
+  float: none !important;
+}
+
+a
+{
+  cursor: pointer;
+  color: rgb(0, 102, 153);
+	text-decoration: none;
+}
+a:hover {
+	color: rgb(0, 0, 153);
+}
+p{
+	margin-bottom: 2px;
+}
+textarea, input, select
+{
+  font-size: 1em;
+  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+ul, ol, li
+{
+  margin: 0;
+  padding: 0;
+  list-style-type:none;
+}
+dl, dt, dd
+{
+  margin: 0;
+  padding: 0;
+}
+h1{
+	font-size: 1.2em;
+	margin-top: 4px;
+}
+h3
+{
+	font-size: 1.25em;
+	color: black;
+}
+/*
+h3:first-letter {
+	color: #798D0A;
+	font-size: 1.3em;
+}*/
+h4
+{
+	font-size: 1em;
+	border-bottom: 2px solid rgb(0, 102, 153);
+}
+code, samp, pre
+{
+	font-size: .8em;
+	display: block;
+	font-family: monospace;
+	background-color: rgb(235, 235, 235);
+	border: 1px dashed rgb(101, 101, 101);
+	padding: 1em;
+	margin: .5em 0;
+}
+address
+{
+	display: block;
+	font-style: italic;
+}
+blockquote
+{
+	margin: 1em 40px;
+}
+
+.icon span
+{
+  display: none;
+}
+
+
+
+
+/*
+ *
+ * Mise en forme des formulaires
+ *
+ */
+
+.form-ligne,
+.form-textarea
+{
+  margin: 0;
+  padding: 5px;
+}
+.form-textarea label,
+.form-ligne label,
+.generalForm label
+{
+  width: 100px;
+  float: left;
+  margin: 5px 0px 5px 0px;
+  padding: 3px;
+}
+
+.form-ligne .label-radio
+{
+  float: none;
+}
+.form-ligne input,
+.generalForm input,
+.form-ligne select
+{
+  margin: 5px 0px;
+  padding: 2px;
+}
+input[type~=text],
+input[type~=password],
+input[type~=file],
+textarea,
+select
+{
+  padding: 2px;
+  border: 1px solid rgb(101, 101, 101);
+  background-color: white;
+}
+input:focus,
+textarea:focus
+{  
+  border: 1px solid rgb(101, 101, 101);
+  background-color: rgb(236, 236, 236);
+}
+input[disabled="disabled"], input[disabled=""] {
+  border: 1px solid rgb(101, 101, 101);
+  background-color: rgb(236, 236, 236);
+}
+.form-ligne input[type="radio"]
+{
+  margin: .5em 0;
+}
+.generalForm input[type="submit"]
+{
+/*  padding: 0px;*/
+}
+
+
+/*
+ *
+ * Style du div de la page contenant le site
+ *
+ */
+
+.page
+{
+  width: 780px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+
+/*
+ *
+ * Style de l'entête (header) + du menu principal (main_menu)
+ *
+ */
+
+.page_header
+{
+  margin: 10px 0 6px 0;
+  padding: 0 0 0 0;
+  border: 1px solid rgb(101, 101, 101);
+  background: transparent url(./images/header-bg.png) top center no-repeat;
+}
+.page_header .home
+{
+  height: 120px;
+  display: block;
+}
+
+#main_menu
+{
+  background: white url(./images/main_menu-bg.png) bottom center repeat-x;
+  padding: 2px;
+  border-top: 1px solid rgb(101, 101, 101);
+}
+#main_menu ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#main_menu .icon
+{
+  background: transparent url(./images/icons.png) 0 0 repeat;
+}
+* html #main_menu .icon
+{
+  background-image: url(./images/icons_8bits.png);
+}
+#main_menu a:hover,
+#main_menu .tools .add:hover .title:hover
+{
+  background-color: gray;
+}
+
+#main_menu #ul_menu
+{
+  background: transparent url(./images/main_menu-separator.png) right center repeat-y;
+  float: left;
+  width: 731px;
+  padding: 0 3px 0 0;
+  margin: 0;
+}
+#main_menu #ul_menu li
+{
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 2px 5px 2px 2px;
+  height: 24px;
+  overflow: hidden;
+  background: transparent url(./images/main_menu-separator.png) right center repeat-y;
+}
+* html #main_menu #ul_menu li
+{
+  height: 28px;
+}
+#main_menu .edit
+{
+  display: none;
+  padding: 0;
+  height: 16px;
+  width: 16px;
+  margin: 4px;
+}
+#main_menu #ul_menu li a
+{
+  float: left;
+}
+#main_menu .title,
+#main_menu .tools .title
+{
+  padding: 0 4px;
+  margin: -0.7em 0;
+  text-decoration: none;
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+* html #main_menu .title
+{
+  padding: 0 0 12px 0;
+}
+#main_menu .title .icon,
+#main_menu .tools .add:hover .title .icon
+{
+  display: block;
+  float: left;
+  height: 24px;
+  width: 24px;
+  margin: .6em 0;
+  background-image:  url(./images/icons.png);
+  overflow: hidden;
+  padding: 0;
+}
+* html #main_menu .title .icon,
+* html #main_menu .tools .add:hover .title .icon
+{
+  background-image: url(./images/icons_8bits.png);
+}
+#main_menu .title .text,
+#main_menu .tools .add:hover .title .text
+{
+  height: auto;
+  display: block;
+  float: left;
+  margin: 12px 0 12px 4px;
+  overflow: hidden;
+  padding: 0;
+}
+#main_menu.editable #ul_menu .edit
+{
+  display: block;
+}
+#main_menu #ul_menu .edit.remove
+{
+  /*background-image: url(./images/main_menu/icon-delete.png);*/
+  background-position: -32px -0px;
+}
+#main_menu #ul_menu .edit.move_left
+{
+  background-position: -64px -0px;
+}
+#main_menu #ul_menu .edit.move_right
+{
+  background-position: -48px -0px;
+}
+
+#main_menu .tools
+{
+  float: left;
+  margin: 0 0 0 -3px;
+  padding: 0 0 0 3px;
+  background: transparent url(./images/main_menu-separator.png) left center repeat-y;
+}
+* html #main_menu .tools li
+{
+  font-size: .01em;
+}
+#main_menu .tools a
+{
+  height: 24px;
+  width: 24px;
+  margin: 4px 0 0 8px;
+}
+* html #main_menu .tools a
+{
+  font-size: 100em;
+}
+#main_menu .tools .edit_on
+{
+  display: block;
+  background-position: -144px -48px;
+}
+#main_menu.editable .tools .edit_on
+{
+  display: none;
+}
+#main_menu .tools .edit_off
+{
+  background-position: -72px -48px;
+  display: none;
+}
+#main_menu.editable .tools .edit_off
+{
+  display: block;
+}
+#main_menu .tools .add
+{
+  display: none;
+  background: transparent url(./images/icons.png) -240px -72px repeat;
+}
+* html #main_menu .tools .add
+{
+  background-image: url(./images/icons_8bits.png);
+}
+#main_menu.editable .tools .add
+{
+  display: block;
+}
+#main_menu .tools .add .bubble
+{
+  display: none;
+}
+#main_menu .tools .add:hover .bubble
+{
+  display: block;
+  position: absolute;
+  margin: 24px 0 0 -131px;
+  background-color: white;
+  padding: 5px;
+  width: 150px;
+  border: 1px solid rgb(101, 101, 101);
+  z-index: 99;
+}
+* html #main_menu .tools .add:hover .bubble
+{
+  margin: 24px 0 0 -121px;
+}
+#main_menu .tools .bubble span
+{
+  padding: 2px 0;
+  height: 24px;
+  overflow: hidden;
+}
+#main_menu .tools .bubble span span
+{
+  height: auto;
+  overflow: hidden;
+}
+#main_menu .tools .add:hover span
+{
+  display: block;
+  margin: 2px 0;
+}
+#main_menu .tools .add:hover .title
+{
+  margin: -0.8em 0;
+  float: none;
+}
+* html #main_menu .tools .add:hover .title
+{
+  padding: 0;
+  margin: 0;
+}
+* html #main_menu .tools .add:hover .title .icon
+{
+  margin: 0;
+  padding: 0;
+  font-size: 1px;
+}
+* html #main_menu .tools .add:hover .title .text
+{
+  /*padding: 12px 0;*/
+  /*margin: -1em 0;*/
+  margin: 0;
+}
+
+#main_menu .menu_accueil .title .icon
+{
+  background-position: -24px -72px;
+}
+#main_menu .menu_preference .title .icon
+{
+  background-position: -144px -48px;
+}
+#main_menu .menu_trombi .title .icon
+{
+  background-position: -120px -48px;
+}
+#main_menu .menu_mail .title .icon
+{
+  background-position: -192px -48px;
+}
+#main_menu .menu_uv .title .icon
+{
+  background-position: -96px -72px;
+}
+#main_menu .menu_annales_uv .title .icon
+{
+  background-position: -72px -72px;
+}
+#main_menu .menu_forum .title .icon
+{
+  background-position: -48px -72px;
+}
+#main_menu .menu_ges_projets .title .icon
+{
+  background-position: -216px -48px;
+}
+#main_menu .menu_heb_web .title .icon
+{
+  background-position: -240px -48px;
+}
+#main_menu .menu_photos .title .icon
+{
+  background-position: -0px -72px;
+}
+#main_menu .menu_event .title .icon
+{
+  background-position: -168px -48px;
+}
+#main_menu .menu_naru .title .icon
+{
+  background-position: -72px -96px;
+}
+#main_menu .menu_emploi .title .icon
+{
+  background-position: -216px -72px;
+}
+#main_menu .menu_annonces .title .icon
+{
+  background-position: -96px -96px;
+}
+#main_menu .menu_covoiturage .title .icon
+{
+  background-position: -144px -96px;
+}
+#main_menu .menu_logout .title .icon
+{
+  background: url('./images/common/icon-disconnect.png') no-repeat 5px 5px;
+}
+#main_menu .menu_wiki .title .icon
+{
+  background-position: -168px -95px;
+}
+.trash .icon
+{
+  background-position: -144px -96px;
+}
+#main_menu .menu_buckutt .title .icon
+{
+  background: url('./images/icon-buckutt24.png') no-repeat;
+}
+
+
+
+/*
+ *
+ * Style de la citation
+ *
+ */
+
+p.quote
+{
+  font-family: Georgia,Times,serif;
+  background: transparent url(./images/open-quote.png) top left no-repeat;
+  padding: 10px 10px 10px 35px;
+  margin: 0 50px 12px 50px;
+  font-style: oblique;
+}
+p.quote q:before
+{
+  /*content: open-quote;*/
+  content: '';
+}
+p.quote q
+{
+  display: block;
+  font-style: italic;
+}
+p.quote q:after
+{
+	/*content: close-quote;*/
+	content: '';
+}
+p.quote cite
+{
+  display: block;
+  float: right;
+  background: transparent url(./images/close-quote.png) center right no-repeat;
+  padding: 0 20px 0 0;
+}
+
+
+
+/*
+ *
+ * Style du fil d'ariane
+ *
+ */
+
+.ariane_wire
+{
+  margin: 0 0 10px 0;
+  padding: 0;
+  list-style-position: inside;
+}
+.ariane_wire li
+{  
+  display: inline;
+  padding: 0 5px;
+}
+.ariane_wire a
+{
+  margin: 0 0 0 5px;
+}
+
+
+
+/*
+ *
+ * Style pour tous les modules (tous ce qui s'approche de près ou de loin sauf pour le contenu des modules)
+ *
+ */
+
+.module
+{
+  margin: 0 auto 10px auto;
+}
+.module .title
+{
+  border: 1px solid rgb(101, 101, 101);
+  background: rgb(196, 196, 196) none bottom repeat-x;
+  color: white;
+  font-size: 1.2em;
+}
+/* for all webbrowsers without Ie (>= 6) */
+html > body .module .title
+{
+  background-image: url(./images/module_title-bg.png);
+}
+.module .title .border-left
+{
+  display: inline;
+  float: left;
+  width: 120px;
+  height: 1.2em;
+  padding: 4px 0;
+  border-right: 1px solid rgb(101, 101, 101);
+  background-color: transparent;
+  background-image: url(./images/module_images.jpg);
+  background-repeat: repeat;
+}
+/* for Ie only */
+* html .module .title .border-left
+{
+  height: 1.6em;
+  padding: 3px 0 0 0;
+}
+.module .title .border-left div
+{
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -1px;
+  background: transparent url(./images/border-radius10.png) 0 0 no-repeat;
+}
+/* for Ie only */
+* html .module .title .border-left div
+{
+  margin: -4px 0 0 -1px;
+  position: absolute;
+  font-size: 1px;
+  background: transparent url(./images/border-radius10_8bits.png) 0 0 no-repeat;
+}
+.module .title .border-right
+{
+  display: none;
+  float: right;
+}
+/* for Ie only */
+* html .module .title .border-right
+{
+  padding: 3px 0 0 0;  
+}
+.module .title .border-right div
+{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -1px 0 0 -9px;
+  background: transparent url(./images/border-radius10.png) -10px 0 no-repeat;
+}
+/* for Ie only */
+* html .module .title .border-right div
+{
+  margin: -4px 0 0 -9px;
+  font-size: 1px;
+  background: transparent url(./images/border-radius10_8bits.png) -10px 0 no-repeat;
+}
+.module.border_radius-topright .title .border-left
+{  
+  width: 115px;
+  margin: 0 0 0 3px;
+  border-left: 1px solid rgb(101, 101, 101);
+}
+.module.border_radius-topright .title .border-left div
+{
+  display: none;
+}
+.module.border_radius-topright .title .border-right
+{
+  display: block;
+}
+
+.module .title h2
+{
+  display: inline;
+  float: left;
+  margin: 0;
+  padding: 2px 0 2px 6px;
+  font-size: 1em;
+}
+.module .title h2 a
+{
+  color: white;
+}
+.module .title h2 a:hover
+{
+  color: rgb(117, 117, 117);
+}
+.module .title h2 a:active
+{
+  color: rgb(203, 203, 203);
+}
+.module .title ul
+{
+  float: right;
+  list-style-type: none;
+  padding: 0 .6em 0 0;
+  margin: 0;
+}
+.module .title li
+{
+  float: left;
+  padding: .8em 0;
+  margin: -10px 0;
+}
+.module .title li a
+{
+  height: 20px;
+  width: 20px;
+  background-image: url(./images/title_buttons_8bits.png);
+  display: block;
+}
+
+/* Images for each themes */
+.module.theme-architectural .title .border-left
+{
+  background-position: -0px -0.7em;
+}
+.module.theme-architectural4 .title .border-left
+{
+  background-position: -120px -0.7em;
+}
+.module.theme-architectural6 .title .border-left
+{
+  background-position: -240px -0.7em;
+}
+.module.theme-architectural7 .title .border-left
+{
+  background-position: -360px -0.7em;
+}
+.module.theme-car .title .border-left
+{
+  background-position: -480px -0.7em;
+}
+.module.theme-cinema .title .border-left
+{
+  background-position: -600px -0.7em;
+}
+.module.theme-diary .title .border-left
+{
+  background-position: -720px -0.7em;
+}
+.module.theme-duck_TV .title .border-left
+{
+  background-position: -840px -0.7em;
+}
+.module.theme-google .title .border-left
+{
+  background-position: -960px -0.7em;
+}
+.module.theme-learning .title .border-left
+{
+  background-position: -1080px -0.7em;
+}
+.module.theme-mail .title .border-left
+{
+  background-position: -1200px -0.7em;
+}
+.module.theme-news .title .border-left
+{
+  background-position: -1320px -0.7em;
+}
+.module.theme-photo_album .title .border-left
+{
+  background-position: -1440px -0.7em;
+}
+.module.theme-radio .title .border-left
+{
+  background-position: -1560px -0.7em;
+}
+.module.theme-rss .title .border-left
+{
+  background-position: -1680px -0.7em;
+}
+.module.theme-sunglasses .title .border-left
+{
+  background-position: -1800px -0.7em;
+}
+.module.theme-telephone_book .title .border-left
+{
+  background-position: -1920px -0.7em;
+}
+.module.theme-to_do_list .title .border-left
+{
+  background-position: -2040px -0.7em;
+}
+.module.theme-translate .title .border-left
+{
+  background-position: -2160px -0.7em;
+}
+.module.theme-trmobi .title .border-left
+{
+  background-position: -2280px -0.7em;
+}
+.module.theme-tv .title .border-left
+{
+  background-position: -2400px -0.7em;
+}
+.module.theme-weather .title .border-left
+{
+  background-position: -2520px -0.7em;
+}
+
+
+.module .content
+{
+  padding: 10px 5px;
+  border-color: rgb(101, 101, 101);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  background-color: rgb(241, 241, 241);
+}
+
+
+
+/*
+ *
+ * Styles pour les boutons de modules
+ *
+ */
+
+a.cross
+{
+  background-position: -40px 0;
+}
+a.cross:hover
+{
+  background-position: -40px 20px;
+}
+a.cross:active
+{
+  background-position: -40px 40px;
+}
+
+a.arrow-ne
+{
+  background-position: -20px 0;
+}
+a.arrow-ne:hover
+{
+  background-position: -20px 20px;
+}
+a.arrow-ne:active
+{
+  background-position: -20px 40px;
+}
+
+a.arrow-sw
+{
+  background-position: 0 0;
+}
+a.arrow-sw:hover
+{
+  background-position: 0 20px;
+}
+a.arrow-sw:active
+{
+  background-position: 0 40px;
+}
+
+a.add
+{
+  background-position: -60px 0;
+}
+a.add:hover
+{
+  background-position: -60px 20px;
+}
+a.add:active
+{
+  background-position: -60px 40px;
+}
+
+a.add
+{
+  background-position: -60px 0;
+}
+a.add:hover
+{
+  background-position: -60px 20px;
+}
+a.add:active
+{
+  background-position: -60px 40px;
+}
+
+a.abuse
+{
+  background-position: -80px 0;
+}
+a.abuse:hover
+{
+  background-position: -80px 20px;
+}
+a.abuse:active
+{
+  background-position: -80px 40px;
+}
+
+a.minimize
+{
+  background-position: -100px 0;
+}
+a.minimize:hover
+{
+  background-position: -100px 20px;
+}
+a.minimize:active
+{
+  background-position: -100px 40px;
+}
+
+a.maximize
+{
+  background-position: -120px 0;
+}
+a.maximize:hover
+{
+  background-position: -120px 20px;
+}
+a.maximize:active
+{
+  background-position: -120px 40px;
+}
+
+
+
+/*
+ *
+ * Styles des numéros de page (pour le forum)
+ *
+ */
+
+.pages
+{
+  /*padding: 5px;*/
+  padding: 0;
+}
+.pages dl
+{
+  float: right;
+  /*margin: -10px 0;*/
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+.pages dt
+{
+  float: left;
+  padding: 0;
+  margin: 8px .5em 0 0;
+  width: auto;
+}
+.pages dd
+{
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+.pages ul
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.pages li
+{
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+.pages a
+{
+  float: left;
+  display: block;
+  margin: 8px 2px;
+}
+.pages li a.here
+{
+  color: rgb(200, 200, 200);
+  cursor: default;
+}
+.pages li a.icon
+{
+  height: 16px;
+  width: 16px;
+  margin: .7em 4px;
+  background: transparent url(./images/icons.png) 0 0 repeat;
+}
+/* Only for Ie ! */
+* html .pages li a.icon
+{
+  background-image: url(./images/icons_8bits.png);
+}
+
+.pages li a.previous
+{
+  background-position: -160px 0px;
+}
+.pages li a.next
+{
+  background-position: -176px 0px;
+}
+
+
+
+/*
+ *
+ * avatar
+ *
+ */
+
+.avatar
+{
+  height: 75px;
+  width: 75px;
+  background-repeat: no-repeat;
+  background-position: center;  
+}
+.avatar.censured
+{
+  border: 2px solid red;
+  background-color: red;
+}
+
+
+
+/*
+ *
+ * Minipopups
+ *
+ */
+
+.minipopup
+{
+  padding: .5em;
+  /*position: absolute;*/
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  border: 1px solid rgb(101, 101, 101);
+  color: black;
+  background-color: rgb(241, 241, 241);
+  padding: 5px;
+  position: fixed;
+}
+* html .minipopup{
+  position: absolute;
+}
+
+/* For IE for Windows \*/
+
+/*
+* html{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+* html body{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+* html .minipopup{
+  position: absolute;
+}
+*/
+
+/* */
+
+.minipopup.loading
+{
+  background: rgb(255, 130, 46) url(./images/icon-loading.gif) 5px .2em no-repeat;
+  color: white;
+  font-weight: 900;
+  padding: 5px 5px 5px 30px;
+}
+.minipopup.newmail
+{
+  background: rgb(241, 145, 145) url(./images/forum/icon-mail.png) 5px 1.4em no-repeat;
+  padding: 5px 5px 5px 30px;
+  border: 1px solid rgb(201, 101, 101);
+}
+.minipopup.fuck_ie
+{
+  width: 800px;
+  background-color: rgb(202, 224, 242);
+  padding: 5px;
+  text-align: left;
+  left: 50%;
+  margin: 20px 0 0 -401px;
+}
+.minipopup.fuck_ie p
+{
+  background: transparent url(./images/gnome-globe.png) left center no-repeat;
+  padding: 0 0 0 100px;
+  height: 100px;
+}
+
+
+
+/*
+ *
+ * Style du footer
+ *
+ */
+
+#footer
+{
+  margin: 20px 0 10px 0;
+  border: 1px solid rgb(101, 101, 101);
+  padding: 0 20px;
+  background: transparent url(./images/footer-bg.png) center no-repeat;
+  clear: both;
+}
+#footer p
+{
+  padding: 0;
+  margin: 10px 0;
+  float: left;
+}
+#footer ul
+{
+  /* pour le moment on maque les lien du footer */
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+/*
+ *
+ * Infobulle
+ *
+ */
+
+.infobulle {
+  background-color:#FFFFDD;
+  opacity: 0.95;
+  padding: 4px;
+  border: solid 1px black;
+  text-align: left;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  max-width: 700px;
+}
+
+
+
+/*
+ *
+ * Boutons help avec bulle d'info
+ *
+ */
+
+.info_bubble
+{
+  display: none;
+  /*position: relative;/* for Ie */
+  width: 204px;
+  position: absolute;
+  margin: -2px 0 0 -2px;
+}
+.info_bubble-content
+{ 
+  background: url(./images/info_bubble/info_bubble-background.png) top no-repeat;
+  padding: 15px 20px 5px 34px;
+  display: block;
+  position: relative;
+}
+.info_bubble-bottom
+{
+  height: 12px;
+  display: block;
+  background: url(./images/info_bubble/info_bubble-bottom.png) top no-repeat;
+  position: relative;
+}
+.help:hover .info_bubble
+{
+  display: block;
+}
+.help:hover
+{
+  background-repeat: no-repeat;
+  color: white;
+  text-decoration: none;
+  /*background-color: red;*/
+}
+.help:active
+{
+  background-repeat: no-repeat;
+  color: white;
+}
+.help
+{
+  /*background: url(./images/info_bubble/icon-help.png) center no-repeat;*/
+  background: transparent url(./images/icons.png) -16px 0 repeat;
+  height: 16px;
+  width: 16px;
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  display: block;
+  font-size: .8em;
+}
+* html .help
+{
+  background-image: url(./images/icons_8bits.png);
+}
+

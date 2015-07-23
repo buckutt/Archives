@@ -1,0 +1,71 @@
+body, a, th, td, tr, font, b, i, table, p {
+	FONT-FAMILY: Verdana, Arial, Times, sans-serif ;
+	FONT-SIZE: 8pt;
+	
+}
+
+BODY {
+	margin: 0px;
+/*	background: #FFFFFF url('../../images/back.jpg'); */
+}
+
+INPUT {
+	FONT-FAMILY: Verdana, Arial, Times, sans-serif ;
+	FONT-SIZE: 7pt;
+	background: #FFFFFF;
+	border: solid 1px;
+}
+
+TEXTAREA{
+	FONT-FAMILY: Verdana, Arial, Times, sans-serif ;
+	FONT-SIZE: 7pt;
+	background: #FFFFFF;
+	border: solid 1px;
+}
+
+.titre {
+        FONT-WEIGHT: bold;
+        TEXT-DECORATION: none;
+        FONT-SIZE: 14pt;
+        color: #000000;
+}
+
+H1 {
+        FONT-WEIGHT: bold;
+        TEXT-DECORATION: none;
+        FONT-SIZE: 12pt;
+        color: #000000;
+}
+
+
+H2 {
+        FONT-WEIGHT: bold;
+        TEXT-DECORATION: underline;
+        FONT-SIZE: 10pt;
+        color: #000000;
+}
+
+LI {
+	padding-left: 20px;
+	background: url('images/menu2.gif');
+	background-repeat: no-repeat;
+}
+
+A {
+        FONT-WEIGHT: bold;
+/*	TEXT-DECORATION: none;*/
+        color:#FFF;
+}
+
+A:hover {
+        TEXT-DECORATION: bold,underline ;
+        color:#FCC;
+}
+
+li {
+	margin: 3px;
+}
+
+IMG {
+border: 0px;
+}

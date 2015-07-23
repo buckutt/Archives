@@ -1,0 +1,216 @@
+diff -u buckutt/confirm_sherlocks.php fantomette/confirm_sherlocks.php
+--- buckutt/confirm_sherlocks.php	2010-05-01 18:35:23.000000000 +0200
++++ fantomette/confirm_sherlocks.php	2012-02-18 22:23:08.000000000 +0100
+@@ -1,6 +1,7 @@
+ <?php 
+-
+-$client = new SoapClient("https://10.10.10.1:4430/SBUY.class.php?wsdl");
++include_once('config.inc.php');
++//TODO: changer ca ! 
++//$client = new SoapClient("https://10.10.10.1:4430/SBUY.class.php?wsdl");
+ $client->transactionDecode(base64_encode($_POST['DATA']));
+ 
+-?>
+\ No newline at end of file
++?>
+Common subdirectories: buckutt/css and fantomette/css
+diff -u buckutt/fund_trezo.php fantomette/fund_trezo.php
+--- buckutt/fund_trezo.php	2012-01-10 10:35:19.000000000 +0100
++++ fantomette/fund_trezo.php	2012-02-18 22:23:08.000000000 +0100
+@@ -220,4 +220,4 @@
+ {
+     header('Location: index.php');
+ }
+-?>
++?>
+\ No newline at end of file
+diff -u buckutt/header.inc.php fantomette/header.inc.php
+--- buckutt/header.inc.php	2012-01-10 10:33:24.000000000 +0100
++++ fantomette/header.inc.php	2012-02-18 22:23:08.000000000 +0100
+@@ -1,18 +1,17 @@
+ <?php
+-
+ //Obligatoire
+ $niveauSecu = 'log'; //Niveaux de sécurité (voir $session->authPage() )
+-$idPage = 155; //gestion du fil d'ariane
+ 
+-//$toto_session = 'bernardx';
+ include ('../include/config.inc');
++//TODO: rendre generique les inc.php ou .inc , par cq on prefereras les .inc.php
++
++require_once('config.inc.php');
+ 
+ $page = new Page();
+ $page->header('Système de paiement', 'buckutt');
+ 
+-// A retirer pour la V8
+ ?>
+-<link rel="stylesheet" type="text/css" href="<?php echo $config['baseUrl']?>/buckutt/buckutt.style.css" />
++<link rel="stylesheet" type="text/css" href="<?php echo $config['baseUrl']?>/fantomette/buckutt.style.css" />
+ <link type="text/css" href="css/flick/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+ <script type="text/javascript" src="js/jquery-1.4.2.min.js">
+ </script>
+@@ -22,9 +21,11 @@
+ error_reporting(E_ERROR);
+ 
+ //$url = 'http://buckutt.dyndns.org/server/';
+-$url = 'http://10.10.10.1:8080/';
++//TODO:rendre plus propre ca :
++$url = $config['SERVER']['URL'];
+ 
+ // En fonction des pages, on appel ou non les wsdl utiles
++//TODO: revoir avec le fichier de configuration
+ $wsdlSADMIN = $url.'SADMIN.class.php?wsdl';
+ if ($needSBUY){
+   $wsdlSBUY = $url.'SBUY.class.php?wsdl';
+@@ -38,10 +39,35 @@
+ // Web Services Client
+ include_once 'lib/nusoap.php';
+ 
+-// La fonction str_getcsv n'existe qu'à partir de php 5.3 donc on la crée si php < 5.3
+-//if (!function_exists('str_getcsv')){
+-  include_once('str_getcsv.inc.php');
+-//}
++
++/**
++ * Implémentation de la fonction str_getcsv_buckutt
++ * @return Array $array0
++ * @param String $string_csv
++ * @param String $pattern
++ */
++function str_getcsv_buckutt($string_csv, $pattern) {
++  if (!empty($string_csv) && is_string($string_csv)) {
++    $array0 = explode(";\n", $string_csv, -1);
++    foreach ($array0 as $i=>$array1) {
++      $array2 = substr($array1, 1, -1);
++      $array0[$i] = explode('"'.$pattern.'"', $array2);
++      foreach ($array0[$i] as $j=>$array3) {
++        $array0[$i][$j] = $array3;
++      }
++    }
++    return $array0;
++  } else { return 400; }
++}
++
++
++// La fonction str_getcsv_buckutt n'existe qu'à partir de php 5.3 donc on la crée si php < 5.3
++/*
++//TODO: rendre propre ca en utilisant la fonction de php5.3 au lieu de la bricole
++if (!function_exists('str_getcsv_buckutt')){
++  include_once('str_getcsv_buckutt.inc.php');
++}
++*/
+ 
+ // Affichons ce nombre au format français
+ function credit_format ($credit) {
+diff -u buckutt/image.inc fantomette/image.inc
+--- buckutt/image.inc	2012-01-10 10:35:32.000000000 +0100
++++ fantomette/image.inc	2012-02-18 22:23:08.000000000 +0100
+@@ -48,7 +48,7 @@
+   echo '<img src="images/'.$id_image.'.jpg" alt="'.$name_object.'" />';
+ } else {
+   $allImageCSV = $SADMIN->getImage($id_image);
+-  foreach (str_getcsv_buckutt($allImageCSV, ',') as $allImage) {
++  foreach (str_getcsv($allImageCSV, ',') as $allImage) {
+     $id_image = $allImage[0];
+     $mime = $allImage[1];
+     $width = $allImage[2];
+Common subdirectories: buckutt/images and fantomette/images
+diff -u buckutt/index.php fantomette/index.php
+--- buckutt/index.php	2010-09-26 19:10:17.000000000 +0200
++++ fantomette/index.php	2012-02-18 22:23:08.000000000 +0100
+@@ -67,12 +67,16 @@
+     {
+         if (! empty($_POST['pin']) && $_POST['pin'] != 0)
+         {
++//Ok, donc d�sision unilat�rale de moi meme : on utiliseras pas la classe de session de wopelight pour gerer l'authentification, en tout cas dans un premier temps !
++//soit:
++//%s/session..login/_POST['login']/g
++
+             $SADMIN = new nusoap_client($wsdlSADMIN, true);
+             $SBUY = new nusoap_client($wsdlSBUY, true);
+-            $loginSADMIN = $SADMIN->login($session->login, 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
++            $loginSADMIN = $SADMIN->login($_POST['login'], 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
+ 			//écite de tenter si le mec a pas le bon mdp (et donc, que +1 en fail_auth)
+ 			if($loginSADMIN == 1)
+-	            $loginSBUY = $SBUY->login($session->login, 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
++	            $loginSBUY = $SBUY->login($_POST['login'], 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
+             if ($loginSADMIN == 1 && $loginSBUY == 1)
+             {
+                 // On verifie s'il est administrateur de fundation
+@@ -80,7 +84,8 @@
+                 if ($allFundations != 409)
+                 {
+                     $FADMIN = new nusoap_client($wsdlFADMIN, true);
+-					$FADMIN->login($session->login, 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
++						//pk deux n nn ????
++					$FADMIN->login($_POST['login'], 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
+                 }
+ 				
+                 // On verifie s'il est admin de buckutt
+@@ -88,7 +93,7 @@
+                 if ($isAdminBuckutt == 1)
+                 {
+ 					$BADMIN = new nusoap_client($wsdlBADMIN, true);
+-                    $BADMIN->login($session->login, 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
++                    $BADMIN->login($_POST['login'], 1, $_POST['pin'], $_SERVER["REMOTE_ADDR"]);
+                 }
+ 				
+                 include_once ('dashboard.inc.php');
+Common subdirectories: buckutt/js and fantomette/js
+Common subdirectories: buckutt/lib and fantomette/lib
+diff -u buckutt/login.inc.php fantomette/login.inc.php
+--- buckutt/login.inc.php	2010-09-26 19:08:33.000000000 +0200
++++ fantomette/login.inc.php	2012-02-18 22:23:08.000000000 +0100
+@@ -41,12 +41,8 @@
+ ?>
+ <div style='width:100%;margin:auto;'>
+     <?php
+-	$SADMIN = new nusoap_client($wsdlSADMIN, true);
+-	$isCotisant = $SADMIN->isInGroup($session->login, 1, $_SERVER["REMOTE_ADDR"], 1);
+-	
+-	if($isCotisant == 0) {
+-        $page->msgInfo("ATTENTION, tu n'es pas adherent au BDE, tu ne pourras donc pas profiter des services du BDE au foyer et à ZeShop. <br /><br />Pour plus d'informations, passe au BDE ou envoie un mail à bde@utt.fr.");
+-	}
++//	$SADMIN = new nusoap_client($wsdlSADMIN, true);
++//	$isCotisant = $SADMIN->isInGroup($session->login, 1, $_SERVER["REMOTE_ADDR"], 1);
+     
+     $page->moduleheader('Buckutt', 'E2E9EE', 'FFFFFF', 'architectural', 'auth');
+     ?>
+@@ -79,14 +75,10 @@
+         ?>
+     </div>
+     <div style='text-align:center;width:60%;border:3px double black; margin:auto;padding: 0px 10px 10px;'>
+-        <p>
+-            Tu es connecté en tant que : 
+-            <?php
+-            echo $session->login;
+-            ?>
+-        </p>
+-        <form method="post" action="index.php">
++       <form method="post" action="index.php">
+             <p>
++<span>Login</span>
++<input type="text" name="login" />
+                 <span>Ton code PIN BuckUTT :</span>
+                 <input type="password" name="pin" id="pin" size="4" maxlength="4" value="" />
+             </p>
+@@ -108,9 +100,11 @@
+             if ( isset ($_GET['forgot']))
+             {
+                 echo $session->email;
+-                $client = new SoapClient("http://10.10.10.1:8080/SADMIN.class.php?wsdl");
++                //$client = new SoapClient("http://10.10.10.1:8080/SADMIN.class.php?wsdl");
++//rendu plus generique
++                $client = new SoapClient($config['SADMIN']);
+ 				//$client = new SoapClient("http://buckutt.dyndns.org/server/SADMIN.class.php?wsdl");
+-                $erreur = $client->resetKey($session->login, $session->email);
++                $erreur = $client->resetKey('chateaum','chateaum@gmail.com');
+                 if ($erreur == 0)
+                 {
+                     echo "<p>Ton nouveau code PIN t'a été envoyé par mail <br />(et tu as été au passage déconnecté du site pour des questions de sécurité)</p>";
+Common subdirectories: buckutt/rpc and fantomette/rpc
+Common subdirectories: buckutt/sherlocks and fantomette/sherlocks
+Only in buckutt/: sql.log
+Only in buckutt/: str_getcsv.inc.php
+Common subdirectories: buckutt/table-sorter and fantomette/table-sorter
