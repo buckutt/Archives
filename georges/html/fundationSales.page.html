@@ -1,0 +1,25 @@
+﻿<div id="fundationSales_page" >
+    <h3>Ventes de la fondation <span data-bind="text: fundation.name"></span></h3>
+	<div id="uiMessage"></div>
+    <p id="date_rang_select">
+        <label for="date_begin">Du </label><input type="text" id="date_begin" data-bind="{attr: { value: date_range.begin }}"/>
+        <label for="date_end">au </label><input type="text" id="date_end" data-bind="{attr: { value: date_range.end }}"/>
+        <span id="go_btn" class="linklike">Go</a>
+    </p>
+    <table>
+        <tr>
+            <th>Object</th>
+            <th>Point</th>
+            <th>Quantité</th>
+            <th>Total</th>
+        </tr>
+        <!-- ko foreach: sales -->
+        <tr>
+            <td data-bind="text: object_name"></dt>
+            <td data-bind="text: point_name"></td>
+            <td data-bind="text: sold_qty"></td>
+            <td data-bind="text: profits"></td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>

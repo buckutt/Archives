@@ -1,0 +1,299 @@
+
+
+body {
+    font: normal 11px auto;
+    font-size: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    /*color: #4f6b72;*/
+    background: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+a, .linklike { color: #336699; text-decoration: none;}
+a:hover, .linklike:hover { text-decoration: underline; }
+.linklike { cursor: pointer; } 
+h1 { margin: 0; padding: 0; }
+h2 { margin: 0; padding: 0; } 
+
+#wrap { 
+    width: 1200px;
+    height: 1200px;
+    margin: 20px auto;
+}
+
+#header {
+    height: 150px;
+    background: url(images/header.jpg) no-repeat;
+}
+#header h1 {
+    margin: 0;
+    padding: 60px 0 0 60px;
+    font-weight: 100;
+    font-size: 22px;
+    letter-spacing: -1px;
+    color: #fff;
+}
+#header h1 a { text-decoration: none; color: #F9F7ED; }
+#header h1 a:hover { text-decoration: none; color: #fff; }
+
+#header h2 { color: #eee; font-size: 15px; font-weight: 100; padding: 0 0 0 60px; }
+
+#menu {
+    background: url(images/menu.jpg) no-repeat;
+    height: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 40px;
+}
+#menu ul li {
+    display: block;
+    float: left;
+}
+#menu ul li a {
+    display: block;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+}
+#menu ul li a:hover {
+    color: #fff;
+    background: url(images/menuover.png) repeat-x;
+}
+
+#menubottom { background: url(images/menubottom.jpg) no-repeat; padding: 5px 0; }
+
+#contentwrap {
+    background: url(images/content.jpg) repeat-y;
+    padding: 0 40px;
+}
+
+#content {
+    float: right;
+    width: 900px;
+    margin-top: 20px;
+}
+#content h2 {
+    margin: 0;
+    color: #1f1f1f;
+    line-height: 30px;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+#sidebar {
+    margin-top: 20px;
+    float: left;
+    width: 200px;
+}
+
+#sidebar h3 {
+    margin: 0;
+    background: url(images/sidebarh3.jpg) no-repeat;
+    height: 40px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+#sidebar p { padding: 0 10px 10px 10px; color: #232323; }
+
+#sidebar ul {
+    padding: 10px 0 25px 20px;
+    margin: 0;
+    list-style-type: none;
+}
+
+#sidebar ul li {
+    background: url(images/bullet.png) no-repeat center left;
+    padding: 2px 0 2px 22px;
+    margin: 0;
+}
+
+#footer { 
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    background: url(images/footer.jpg) no-repeat;
+    height: 110px;
+    line-height: 110px;
+}
+#footer p { padding: 0; margin: 0; }
+#footer a { color: #fff; }
+#footer a:hover { text-decoration: underline; }
+
+
+div.preztable th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    border-top: 1px solid #C1DAD7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 6px 6px 12px;
+    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+div.preztable td {
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    background: #fff;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+}
+
+
+div.preztable td.alt {
+    background: #F5FAFA;
+    color: #797268;
+}
+
+div.preztable th.spec {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    background: #fff url(images/bullet1.gif) no-repeat;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+div.preztable th.specalt {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    background: #f5fafa url(images/bullet2.gif) no-repeat;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #797268;
+}
+
+form.cssform {
+    width: 310px;
+}
+.cssform p.input{
+    width: 310px;
+    clear: left;
+    border-top: 1px dashed gray;
+
+}
+
+.cssform label{
+    font-weight: bold;
+    float: left;
+    margin-left: 0px;
+    width: 150px;
+}
+.cssform p.submit {
+    padding: 0 0 0 0;
+    width: 310px;
+    font-weight: bold;
+    float: right;
+    text-align: right;
+    clear: left;
+}
+p.error{
+    width: 300px;
+    padding: 10px 5px;
+    border-color: #656565;
+    border-style: solid;
+    border-width: 2px 1px 1px 1px;
+    background-color: #FCC;
+}
+
+#top_login_display{
+	float: right;
+	margin-right: 50px;
+}
+
+#top_login_display span{
+	color: white;
+	margin-left: 5px;
+}
+
+#login_page{
+	width: 300px;
+	margin-top: 50px;
+	margin-left: 200px;
+}
+
+#login_page h3{
+	text-align: center;
+}
+
+.loadDiv{
+	position:absolute;
+	left: 50%; 
+	top: 350px;
+}
+
+.loadImg{
+	position:relative;
+	left: 50%; 
+	margin-left: -12px; /* Moitié de l'image */
+}
+
+.sendingDiv, .sendingImg{
+	display: inline;
+	width: 12px;
+	height: 12px;
+}
+
+.linediv {
+	float: left;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.div_table_line{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.hiddenInfoBlock{
+	padding: 20px;
+	padding-bottom: 35px;
+}
+
+.custom_div_table h3, .custom_div_table h4{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.inlineField{
+	margin-right: 20px;
+}
+
+.attr_table{
+	margin-right: 25px;
+	margin-bottom: 10px;
+}
+
+td div {
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+.dynamicForm, .dynamicInfo{
+	display:none;
+}
+
+.attr_table td{
+	padding-right: 8px;
+}
+
+td[class*="date"] div {
+	text-align: center;
+}

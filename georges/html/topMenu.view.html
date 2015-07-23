@@ -1,0 +1,12 @@
+<div id="menu">
+	<div id="top_login_display" data-bind="if: login">Vous êtes connecté en temps que <span data-bind="text: login"></span></div>
+    <div>
+		<ul data-bind="foreach: items">
+			<li>
+				<a data-bind="{attr: { href: address }, text: displayText}"></a>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+<div id="menubottom"></div>

@@ -1,0 +1,22 @@
+<div id="dialog_list_group_price" title="Ajouter un prix pour un groupe">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prix</th>
+        </tr>
+        <!-- ko foreach: groups -->
+        <tr>
+            <td class="group_id">
+				<div data-bind="text: id"></div>
+			</td>
+            <td class="group_name">
+				<div data-bind="text: name"></div>
+			</td>
+            <td class="group_price">
+				<input type="text" name="price" style="width:40px" />
+			</td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>

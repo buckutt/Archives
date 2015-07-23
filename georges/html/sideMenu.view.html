@@ -1,0 +1,8 @@
+<div id="sidebar" data-bind="foreach: items">
+    <h3 data-bind="text: title"></h3>
+    <ul data-bind="foreach: items">
+        <li>
+            <a data-bind="{attr: { href: menu_link }, text: menu_text}"></a>
+        </li>
+    </ul>
+</div>

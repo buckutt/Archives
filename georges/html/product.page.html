@@ -1,0 +1,301 @@
+<div id="product_page" >
+    <h3>Productes</h3>
+    <div id="uiMessage"></div>
+    <span class="product_add linklike dynlink" >Ajouter</span>
+	<div id="product_add" class="dynamicForm">
+		<label for="oname">Nom : </label><input type="text" id="oname" class="product_name" style="width:200px"/><span class="product_add_validate linklike" style="position: relative;left: 55px;">Créer cet objet</span><br />
+		<label for="ouniqueoui">Unique ? Oui </label><input type="radio" name="ounique" value="oui" id="ouniqueoui"/><label for="ouniquenon">Non </label><input type="radio" name="ounique" value="non" id="ouniquenon"/><br />
+		<label for="ostock">Stock : </label><input type="text" id="ostock" class="product_stock" style="width:35px"/><label for="ostock"> pièces</label><br />
+		<div class="attr_table product_group_price" style="float: left">
+			<h4>Prix par groupes</h4>
+			<table>
+				<tr>
+					<td>Id</td>
+					<td>Nom</td>
+					<td>Prix</td>
+				</tr>
+				<tr class="parsedData" style="display:none">
+					<td class="group_id">
+						<div></div>
+					</td>
+					<td class="group_name">
+						<div></div>
+					</td>
+					<td class="group_price">
+						<div></div>
+					</td>
+					<td class="group_delete" style="width:17px">
+						<div><span class="button_attr_del linklike">Del</span></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="group_price_add" colspan="4">
+						<div><span class="button_attr_add linklike">Ajouter</span></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="attr_table product_period" style="float: left">
+			<h4>Périodes</h4>
+			<table>
+				<tr>
+					<td>Id</td>
+					<td>Nom</td>
+					<td>Début</td>
+					<td>Fin</td>
+				</tr>
+				<tr class="parsedData" style="display:none">
+					<td class="period_id">
+						<div></div>
+					</td>
+					<td class="period_name">
+						<div></div>
+					</td>
+					<td class="period_date_begin">
+						<div></div>
+					</td>
+					<td class="period_date_end">
+						<div></div>
+					</td>
+					<td class="period_delete" style="width:17px">
+						<div><span class="button_attr_del linklike">Del</span></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="period_add" colspan="4">
+						<div><span class="button_attr_add linklike">Ajouter</span></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="attr_table product_point_priority">
+			<h4>Points de ventes</h4>
+			<table>
+				<tr>
+					<td>Id</td>
+					<td>Nom</td>
+					<td>Priorité</td>
+				</tr>
+				<tr class="parsedData" style="display:none">
+					<td class="point_id">
+						<div></div>
+					</td>
+					<td class="point_name">
+						<div></div>
+					</td>
+					<td class="point_priority">
+						<div></div>
+					</td>
+					<td class="point_delete" style="width:17px">
+						<div><span class="button_attr_del linklike">Del</span></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="point_priority_add" colspan="4">
+						<div><span class="button_attr_add linklike">Ajouter</span></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<br />
+    <div id="product_list" class="custom_div_table">
+	<h3>Id Nom</h3>
+        <!-- ko foreach: products -->
+        <div class="div_table_line" style="clear:both">
+			<div class="linediv product_id" style="width:15px">
+				<div data-bind="text: id"></div>
+			</div>
+			<div class="linediv product_name" style="width:204px">
+				<div data-bind="text: name"></div>
+				<div class="dynamicForm"><input type="text" name="oname" style="width:200px"/></div>
+			</div>
+			<div>
+				<div class="product_show_info">
+					<span class="linediv linklike">Dérouler</span>
+				</div>
+				<div class="dynamicInfo">
+					<div class="linediv product_hide_info">
+						<span class="linklike">Masquer</span>
+					</div>
+					<div class="linediv product_edit" style="width:33px">
+						<div><span class="linklike dynlink">Editer</span></div>
+						<div class="dynamicForm"><span class="linklike">Valider</span></div>
+					</div>
+					<div class="product_delete"><div><span class="linklike dynlink">Supprimer</span></div></div>
+				</div>
+			</div>
+			<div class="dynamicInfo productInfo hiddenInfoBlock">
+				<div style="height:35px">
+					<div class="linediv">Unique: </div>
+					<div class="linediv inlineField product_unique" style="width:85px">
+						<div data-bind="text: unique"></div>
+						<div class="dynamicForm"><label for="ouniqueoui">Oui </label><input type="radio" name="ounique" value="oui" id="ouniqueoui"/><label for="ouniquenon">Non </label><input type="radio" name="ounique" value="non" id="ouniquenon"/></div>
+					</div>
+					<div class="linediv">Image: </div>
+					<div class="linediv inlineField product_image_id" style="width:44px">
+						<div data-bind="text: image_id"></div>
+						<div class="dynamicForm"><input type="text" name="oimage_id" style="width:40px"/></div>
+					</div>
+					<div class="linediv">Stock: </div>
+					<div class="linediv inlineField product_stock" style="width:44px">
+						<div data-bind="text: stock"></div>
+						<div class="dynamicForm"><input type="text" name="ostock" style="width:40px"/></div>
+					</div>
+				</div>
+				<div class="attr_table product_group_price" style="float: left">
+					<h4>Prix par groupes</h4>
+					<table>
+						<tr>
+							<td>Id</td>
+							<td>Nom</td>
+							<td>Prix</td>
+						</tr>
+						<tr class="parsedData" style="display:none">
+							<td class="group_id">
+								<div></div>
+							</td>
+							<td class="group_name">
+								<div></div>
+							</td>
+							<td class="group_price">
+								<div></div>
+							</td>
+							<td class="group_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- ko foreach: prices -->
+						<tr class="parsedData">
+							<td class="group_id">
+								<div data-bind="text: group.id"></div>
+							</td>
+							<td class="group_name">
+								<div data-bind="text: group.name"></div>
+							</td>
+							<td class="group_price">
+								<div data-bind="text: price"></div>
+							</td>
+							<td class="group_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- /ko -->
+						<tr>
+							<td class="group_price_add" colspan="4">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_add linklike">Ajouter</span></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="attr_table product_period" style="float: left">
+					<h4>Périodes</h4>
+					<table>
+						<tr>
+							<td>Id</td>
+							<td>Nom</td>
+							<td>Début</td>
+							<td>Fin</td>
+						</tr>
+						<tr class="parsedData" style="display:none">
+							<td class="period_id">
+								<div></div>
+							</td>
+							<td class="period_name">
+								<div></div>
+							</td>
+							<td class="period_date_begin">
+								<div></div>
+							</td>
+							<td class="period_date_end">
+								<div></div>
+							</td>
+							<td class="period_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- ko foreach: periods -->
+						<tr class="parsedData">
+							<td class="period_id">
+								<div data-bind="text: id"></div>
+							</td>
+							<td class="period_name">
+								<div data-bind="text: name"></div>
+							</td>
+							<td class="period_date_begin">
+								<div data-bind="text: date_begin"></div>
+							</td>
+							<td class="period_date_end">
+								<div data-bind="text: date_end"></div>
+							</td>
+							<td class="period_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- /ko -->
+						<tr>
+							<td class="period_add" colspan="4">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_add linklike">Ajouter</span></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="attr_table product_point_priority">
+					<h4>Points de ventes</h4>
+					<table>
+						<tr>
+							<td>Id</td>
+							<td>Nom</td>
+							<td>Priorité</td>
+						</tr>
+						<tr class="parsedData" style="display:none">
+							<td class="point_id">
+								<div></div>
+							</td>
+							<td class="point_name">
+								<div></div>
+							</td>
+							<td class="point_priority">
+								<div></div>
+							</td>
+							<td class="point_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- ko foreach: points -->
+						<tr class="parsedData">
+							<td class="point_id">
+								<div data-bind="text: point.id"></div>
+							</td>
+							<td class="point_name">
+								<div data-bind="text: point.name"></div>
+							</td>
+							<td class="point_priority">
+								<div data-bind="text: priority"></div>
+							</td>
+							<td class="point_delete" style="width:17px">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_del linklike">Del</span></div>
+							</td>
+						</tr>
+						<!-- /ko -->
+						<tr>
+							<td class="point_priority_add" colspan="4">
+								<div></div>
+								<div class="dynamicForm"><span class="button_attr_add linklike">Ajouter</span></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div id="point_page" >
+    <h3>Points</h3>
+    <div id="uiMessage"></div>
+    <span class="point_add linklike dynlink" >Ajouter</span>
+	<p id="point_add" class="dynamicForm">
+		<label for="pname">Nom : </label><input type="text" id="pname" class="point_name" style="width:150px"/>
+		<span class="point_add linklike">Go</span>
+	</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+        </tr>
+        <!-- ko foreach: points -->
+        <tr>
+            <td class="point_id">
+				<div data-bind="text: id"></div>
+			</td>
+            <td class="point_name">
+				<div data-bind="text: name" style="width:154px"></div>
+				<div class="dynamicForm"><input type="text" name="pname" style="width:150px"/></div>
+			</td>
+            <td class="point_edit">
+				<div><span data-bind="if: can_edit" class="linklike dynlink">Editer</span></div>
+				<div class="dynamicForm"><span class="linklike">Valider</span></div>
+			</td>
+            <td class="point_delete">
+				<div><span data-bind="if: can_del" class="linklike dynlink">Supprimer</span></div>
+			</td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>

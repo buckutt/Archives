@@ -1,0 +1,45 @@
+﻿<div id="period_page" >
+    <h3>Periodes</h3>
+    <div id="uiMessage"></div>
+    <span class="period_add linklike dynlink" >Ajouter</span>
+	<p id="period_add" class="dynamicForm">
+		<label for="pname">Nom : </label><input type="text" id="pname" class="period_name" style="width:300px"/>
+		<label for="pdate_begin">Début : </label><input type="text" id="pdate_begin" class="period_date_begin"/>
+		<label for="pdate_end">Fin : </label><input type="text" id="pdate_end" class="period_date_end"/>
+		<span class="period_add linklike">Go</span>
+	</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Début</th>
+            <th>Fin</th>
+        </tr>
+        <!-- ko foreach: periods -->
+        <tr>
+            <td class="period_id">
+				<div data-bind="text: id"></div>
+			</td>
+            <td class="period_name">
+				<div data-bind="text: name" style="width:354px"></div>
+				<div class="dynamicForm"><input type="text" name="pname" style="width:350px" data-bind="attr: { disabled: disable_edit_name }"/></div>
+			</td>
+            <td class="period_date_begin">
+				<div data-bind="text: date_begin" style="width:134px"></div>
+				<div class="dynamicForm"><input type="text" name="pdate_begin" style="width:130px" data-bind="attr: { disabled: disable_edit_date_begin }"/></div>
+			</td>
+            <td class="period_date_end">
+				<div data-bind="text: date_end" style="width:134px"></div>
+				<div class="dynamicForm"><input type="text" name="pdate_end" style="width:130px" data-bind="attr: { disabled: disable_edit_date_end }"/></div>
+			</td>
+            <td class="period_edit">
+				<div><span data-bind="if: can_edit" class="linklike dynlink">Editer</span></div>
+				<div class="dynamicForm"><span class="linklike">Valider</span></div>
+			</td>
+            <td class="period_delete">
+				<div><span data-bind="if: can_del" class="linklike dynlink">Supprimer</span></div>
+			</td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>

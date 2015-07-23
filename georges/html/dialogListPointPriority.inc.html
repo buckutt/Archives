@@ -1,0 +1,26 @@
+<div id="dialog_list_point_priority" title="Ajouter un point de vente et une priorité">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Selection</th>
+            <th>Priorité</th>
+        </tr>
+        <!-- ko foreach: points -->
+        <tr>
+            <td class="point_id">
+				<div data-bind="text: id"></div>
+			</td>
+            <td class="point_name">
+				<div data-bind="text: name"></div>
+			</td>
+			<td class="point">
+				<input type="checkbox" name="point" data-bind="attr: { value: id }">
+			</td>
+            <td class="point_priority">
+				<input type="text" name="priority" style="width:40px" value="100"/>
+			</td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>

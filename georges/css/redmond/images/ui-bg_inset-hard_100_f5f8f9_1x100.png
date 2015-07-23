@@ -1,0 +1,9 @@
+<br />
+<b>Warning</b>:  file_put_contents(/srv/jqueryui.com/htdocs/themeroller/images/cache/b/b0/b08/b08f/phpThumb_cache_jqueryui.com_newb08fb9c7b6d308546df63dda3764c592_par9084bcb753b4fb8f1bc1adfb252190ad.png) [<a href='function.file-put-contents'>function.file-put-contents</a>]: failed to open stream: No such file or directory in <b>/srv/jqueryui.com/htdocs/themeroller/images/phpthumb.class.php</b> on line <b>540</b><br />
+
+**Headers already sent in file "/srv/jqueryui.com/htdocs/themeroller/images/phpthumb.class.php" on line "540", dumping error message as text:**<br><pre>
+
+phpThumb() v1.7.9-200805132119
+
+OutputThumbnail() failed - headers already sent
+</pre>
