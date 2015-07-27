@@ -21,4 +21,4 @@ Archive des projets qui ont permis à BuckUTT de fonctionner par le passé, et q
 
 ## Oubli d'un contributeur ?
 
-Merci d'ouvrir une pull request si jamais nous avons oublié de d'indiquer un contributeur ;-)
+Merci d'ouvrir une pull request si jamais nous avons oublié d'indiquer un contributeur ;-)
