@@ -11,7 +11,7 @@ Archive des projets qui ont permis à BuckUTT de fonctionner par le passé, et q
 * **Pauline** : Client pour Android (Java, pas de license indiquée).
     * Contributeur : [Matthieu GUFFROY](https://github.com/mattgu74), [Arthur PUYOU](https://github.com/apuyou), [Thomas RECOUVREUX](https://github.com/trecouvr).
 * **Peggy** : Client lourd. (Java, pas de licence indiquée).
-    * Contributeurs : [Paul CHABANON](paulchabanon), [Mathieu CHATEAU](https://github.com/Sid3y1).
+    * Contributeurs : Xavier BERNARD, [Paul CHABANON](paulchabanon), [Mathieu CHATEAU](https://github.com/Sid3y1).
 * **Casper** : Gestion du compte personnel (PHP, pas de licence indiquée.)
     * Contributeur : [Arthur PUYOU](https://github.com/apuyou).
 * **Georges** : Gestion administrative (PHP, licence GPL).
